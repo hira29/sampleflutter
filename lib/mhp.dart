@@ -34,7 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
       teams = await Api().getTeams();
       _updatePalettes();
       setState(() {
-        isLoading = false;
       });
     });
   }
@@ -50,7 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
       colors.add(generator.lightVibrantColor != null ?
         generator.lightVibrantColor : PaletteColor(Colors.blue, 2));
     }
-    setState(() {});
+    setState(() {
+      isLoading = false;
+    });
   }
 
   Widget _listViewBuilder() {
